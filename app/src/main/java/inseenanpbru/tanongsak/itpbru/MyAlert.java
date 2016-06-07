@@ -15,7 +15,7 @@ public class MyAlert {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(false);
-        builder.setIcon(R.drawable.rat48);
+        builder.setIcon(R.drawable.game48);
         builder.setTitle(strTitle);
         builder.setMessage(strMessage);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

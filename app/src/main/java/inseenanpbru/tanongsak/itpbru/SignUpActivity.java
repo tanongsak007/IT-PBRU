@@ -5,12 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
+import java.io.IOException;
+
 public class SignUpActivity extends AppCompatActivity {
 
     //Explicit ประกาศตัวแปร
     private EditText nameEditText, surnameEditText, userEditText, passwordEditText;
     private String nameString, surnameString, userString, passwordString;
-
+    private static final String urlUpload = "http://swiftcodingthai.com/pbru2/add_user_master.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         surnameString = surnameEditText.getText().toString().trim();
         userString = userEditText.getText().toString().trim();
         passwordString = passwordEditText.getText().toString().trim();
+
         //chack space
         if (chackSpace()) {
             //True
@@ -40,11 +51,39 @@ public class SignUpActivity extends AppCompatActivity {
 
         } else {
             //False
-
+            uploadValueToServer();
 
         }
 
     }   //clicksign
+
+    private void uploadValueToServer() {
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        RequestBody requestBody = new FormEncodingBuilder()
+                .add("isAdd", "true")
+                .add("Name", nameString)
+                .add("Surname", surnameString)
+                .add("User", userString)
+                .add("Password", passwordString)
+                .build();
+        Request.Builder builder = new Request.Builder();
+        Request request = builder.url(urlUpload).post(requestBody).build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                finish();
+
+            }
+        });
+
+    }   //upload
 
     private boolean chackSpace() {
 
