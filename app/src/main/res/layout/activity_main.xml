@@ -7,12 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="inseenanpbru.tanongsak.itpbru.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    tools:context="inseenanpbru.tanongsak.itpbru.MainActivity"
+    android:background="@drawable/bg8">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -25,7 +21,8 @@
             android:layout_height="wrap_content"
             android:text="SIGN IN"
             android:id="@+id/button"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="clickSignIn" />
 
         <Button
             android:layout_width="wrap_content"
@@ -34,5 +31,35 @@
             android:id="@+id/button2"
             android:layout_weight="1"
             android:onClick="clickSignUpMain" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:padding="20dp"
+        android:weightSum="1"
+        android:background="#50ffffff">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/logo_snru" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText5"
+            android:hint="User:" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText6"
+            android:hint="Password:" />
+
     </LinearLayout>
 </RelativeLayout>
