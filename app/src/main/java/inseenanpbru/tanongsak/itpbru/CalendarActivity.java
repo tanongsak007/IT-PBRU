@@ -2,6 +2,7 @@ package inseenanpbru.tanongsak.itpbru;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -53,11 +54,21 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                Intent intent = new Intent(CalendarActivity.this, UploadAccount.class);
+                intent.putExtra("Login", getIntent().getBooleanArrayExtra("Login"));
+                intent.putExtra("Inout", 0);
+                startActivity(intent);
+
             }
         });
         builder.setNeutralButton("รายจ่าย", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                Intent intent = new Intent(CalendarActivity.this, UploadAccount.class);
+                Intent.putExtra("Login", getIntent().getStringArrayExtra("Login"));
+                startActivity(intent);
+
 
             }
         });
