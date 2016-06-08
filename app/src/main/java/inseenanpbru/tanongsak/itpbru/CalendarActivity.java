@@ -66,7 +66,7 @@ public class CalendarActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 Intent intent = new Intent(CalendarActivity.this, UploadAccount.class);
-                Intent.putExtra("Login", getIntent().getStringArrayExtra("Login"));
+                intent.putExtra("Login", getIntent().getStringArrayExtra("Login"));
                 startActivity(intent);
 
 
